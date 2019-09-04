@@ -1,0 +1,420 @@
+/*////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    Themes Bootstrap - Real Estate Template v1.0.0 (https://themesbootstrap.com.mx/templates/real-estate-template.html)
+    Copyright 2019 Themes Bootstrap
+    Licensed under MIT (https://github.com/diegovr7/real-estate/blob/master/LICENSE)
+
+////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: .05em;
+    background-color: #ffffff;
+    color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 200;
+    margin-bottom: 0px;
+}
+
+a {
+    color: #ffffff;
+}
+
+a:hover {
+    color: #ffffff;
+    text-decoration: none;
+    opacity: .9;
+}
+
+section {
+    padding: 80px 0;
+}
+
+.block-title {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.topmargin-sm {
+    margin-top: 30px !important; 
+}
+
+.topmargin-lg {
+    margin-top: 60px !important;
+}
+
+.primary-btn {
+    background: #ffffff;
+    color: #222729;
+    border: 2px solid #ffffff;
+    padding: 15px 40px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.primary-btn:hover {
+    color: #222729;
+    opacity: .9;
+}
+
+.secondary-btn {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    padding: 15px 40px;
+    display: inline-block;
+    margin: 20px 5px 0 5px;
+}
+
+.secondary-btn:hover {
+    background-color: #ffffff;
+    color: #2d3234;
+}
+
+/*/////////////////////////////////////////
+Navbar
+////////////////////////////////////////*/
+
+.navbar {
+    background-color: #ffffff;
+    z-index: 9999;
+}
+
+.nav-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: #222729;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.nav-link:hover {
+    color: #222729;
+    opacity: .9;
+}
+
+.nav-item i {
+    font-size: 20px;
+    margin-left: 20px;
+    color: #222729;
+}
+
+.navbar-toggler {
+    font-size: 30px;
+    color: #000000;
+}
+
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.header-logo {
+    max-width: 180px;
+    min-width: 180px;
+}
+
+/*/////////////////////////////////////////
+Hero
+////////////////////////////////////////*/
+
+#hero {
+    padding: 20px 0;
+}
+
+.hero-container-desktop {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-container-desktop img {
+    max-width: 100%;
+    -moz-transition: all 0.8s;
+    -webkit-transition: all 0.8s;
+    transition: all 0.8s;
+}
+
+.hero-container-desktop:hover img {
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.hero-details {
+    position: absolute;
+    top: 230px;
+    left: 50px;
+    max-width: 500px;
+    z-index: 9000;
+}
+
+.hero-details h1 {
+    font-size: 50px;
+    font-weight: 200;
+    color: #ffffff;
+}
+
+.hero-details p {
+    font-size: 20px;
+    font-weight: 200;
+    color: #ffffff;
+    letter-spacing: .1em;
+    margin-top: 10px;
+}
+
+.hero-details-mobile {
+    color: #222729;
+}
+
+.hero-details-mobile h1 {
+    font-size: 46px;
+    font-weight: 400;
+    letter-spacing: .1em;
+}
+
+.hero-details-mobile p {
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 1.8;
+}
+
+/*/////////////////////////////////////////
+Properties
+////////////////////////////////////////*/
+
+#properties {
+   color: #222729; 
+}
+
+#properties h2 {
+    font-size: 46px;
+    font-weight: 400;
+    letter-spacing: .1em;
+}
+
+#properties p {
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 1.8;
+}
+
+.property-container {
+    position: relative;
+    overflow: hidden;
+    margin: 18px 0;
+}
+
+.property-container img {
+    max-width: 100%;
+    -moz-transition: all 0.8s;
+    -webkit-transition: all 0.8s;
+    transition: all 0.8s;
+}
+
+.property-container:hover img {
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.property-title, .property-title-sm {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #ffffff;
+    z-index: 9000;
+}
+
+.property-title h3 {
+    font-size: 36px;
+}
+
+.property-title-sm h3 {
+    font-size: 20px;
+}
+
+.property-title-sm span {
+    font-size: 12px;
+}
+
+.property-button, .property-button-sm {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9000;
+}
+
+.property-button-sm a {
+    font-size: 12px;
+}
+
+.property-icon {
+    position: absolute;
+    bottom: 16px;
+    right: 30px;
+    z-index: 9000;
+}
+
+.property-icon i {
+    font-size: 22px;
+    color: #ffffff;
+}
+
+/*/////////////////////////////////////////
+Call to Action
+////////////////////////////////////////*/
+
+#call-to-action {
+    background-color: #2d3234;
+    border-bottom: 1px solid hsla(0,0%,100%,.05);
+    font-size: 200;
+    text-align: center;
+}
+
+#call-to-action h3 {
+    font-size: 48px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+#call-to-action p {
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 1.8;
+}
+
+/*/////////////////////////////////////////
+Footer
+////////////////////////////////////////*/
+
+#footer {
+    background-color: #2d3234;
+    color: #ffffff;
+    padding: 20px 0;
+}
+
+#footer ul {
+    margin-bottom: 0px;
+}
+
+#footer li {
+    margin: 0 15px;
+}
+
+/*/////////////////////////////////////////
+Copyright
+////////////////////////////////////////*/
+
+#copyright {
+    background-color: #222729;
+    color: #919394;
+    padding: 15px 0;
+    letter-spacing: .1em;
+    text-align: center;
+}
+
+#copyright small {
+    font-weight: 200;
+}
+
+#copyright a {
+    color: #ffffff;
+}
+
+/*/////////////////////////////////////////
+Media Queries
+////////////////////////////////////////*/
+
+@media (max-width: 575.98px) { 
+    /*//////////// hero ////////////*/
+    .hero-container-desktop {
+        display: none;
+    }
+    /*//////////// properties ////////////*/
+    .property-title h3 {
+        font-size: 20px;
+    }
+    .property-title span {
+        font-size: 12px;
+    }
+    .property-button a {
+        font-size: 12px;
+    }
+    /*//////////// Footer ////////////*/
+    .list-inline-item {
+        display: block;
+        margin: 25px 0 !important;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) { 
+    /*//////////// hero ////////////*/
+    .hero-container-desktop {
+        display: none;
+    }
+    /*//////////// properties ////////////*/
+    .property-title-sm h3 {
+        font-size: 36px;
+    }
+    .property-button-sm a {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    /*//////////// hero ////////////*/
+    .hero-container-mobile, .mobile-hero {
+        display: none;
+    }
+    .hero-details {
+        max-width: 350px;
+        top: 70px;
+    }
+    .hero-details h1 {
+        font-size: 26px;
+    }
+    .hero-details p {
+        font-size: 14px;
+    }
+    /*//////////// properties ////////////*/
+    .property-title h3 {
+        font-size: 20px;
+    }
+    .property-title span {
+        font-size: 12px;
+    }
+    .property-button a {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+    /*//////////// hero ////////////*/
+    .hero-container-mobile, .mobile-hero {
+        display: none;
+    }
+    .hero-details {
+        max-width: 400px;
+        top: 100px;
+    }
+    .hero-details h1 {
+        font-size: 36px;
+    }
+    .hero-details p {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1200px) { 
+    .hero-container-mobile, .mobile-hero {
+        display: none;
+    }
+}
