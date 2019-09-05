@@ -4,8 +4,12 @@
 
 To run :  
 Using Apache in Xampp 
-    1.Paste the folder in "xampp\htdocs\Zuhause" 
+    1.Paste the folder in "xampp\htdocs\Zuhause"   
+      
     2.Go to "localhost\Zuhause"
+    
+      
+      
 
 Before you run:  
 1. Ensure that the mysql server is running and has a database called: "zuhause" and is accessible with the username: "admin" and password: "securepasword"
