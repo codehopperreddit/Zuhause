@@ -9,9 +9,7 @@
     </head> 
     <body>
             <?php
-            $dbhost = 'localhost:3306';
-            $dbuser = 'admin';
-            $dbpass = 'securepassword';
+            include 'dbaccess.php';
             
             $conn = mysqli_connect($dbhost, $dbuser, $dbpass);
             
@@ -39,6 +37,5 @@
             mysqli_close($conn);
          ?>
          
-
     </body>  
 </html>
