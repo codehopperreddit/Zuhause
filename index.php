@@ -1,3 +1,8 @@
+<?php
+  session_start();
+  $name = $_SESSION['name'] ?? 'Guest';
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -53,10 +58,13 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="SignIn.html">SIGN IN</a>
+          <a class="nav-link" href="SignIn.php">SIGN IN</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="SignUp.html">SIGN UP</a>
+          <a class="nav-link" href="SignUp.php">SIGN UP</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#">Hello <?php echo htmlspecialchars($name); ?> </a>
         </li>
       </ul>
 
