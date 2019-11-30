@@ -1,6 +1,16 @@
 <?php
+  $check=0;
   session_start();
-  $name = $_SESSION['name'] ?? 'Guest';
+  if (isset($_SESSION['loggedin'])) 
+        {
+          $name = $_SESSION['name'];
+          $check=1;
+        }
+  else
+  {
+    $name ='Guest';       //I choose to split this so that i can add the log out div to be visible only when logged in
+  }
+ 
 ?>
 
 <!doctype html>
@@ -57,15 +67,39 @@
 
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="SignIn.php">SIGN IN</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="SignUp.php">SIGN UP</a>
-        </li>
-        <li>
-          <a class="nav-link" href="#">Hello <?php echo htmlspecialchars($name); ?> </a>
-        </li>
+        
+        
+        
+          
+              <?php if($check == 0) 
+               {?>
+              <li>
+                  
+                  <a class="nav-link" href="#">Hello <?php echo htmlspecialchars($name); ?> </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="SignIn.php">SIGN IN</a>
+              </li>
+              <li class="nav-item">
+                    <a class="nav-link" href="SignUp.php">SIGN UP</a>
+              </li>
+                
+               <?php } 
+                else
+                { ?>
+                  <li>
+                  
+                    <a class="nav-link" href="#">Hello <?php echo htmlspecialchars($name); ?> </a>
+
+                  </li>
+                    <li>
+                        <a class="nav-link" href="logout.php">logout</a>
+                    </li>      
+                <?php } ?>
+              
+              
+          
+        
       </ul>
 
       <ul class="navbar-nav ml-auto">

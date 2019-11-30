@@ -44,7 +44,7 @@
         if($sql !== FALSE) 
         {
              $sql->bind_param('sss',$name,$email,$hash);
-             header('Location: index.html');
+             
         }
         else
         {
@@ -54,7 +54,11 @@
         
         $sql->execute();    //use execute() for prepared statements
         $sql->close();
-        
+
+        session_start();
+                $_SESSION['name'] = $_POST['name'];
+                $_SESSION['loggedin'] = TRUE;
+        header('Location: index.html');
     }
 ?>
 
