@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 
@@ -25,33 +24,6 @@
 <body>
     
     <?php
-=======
-<html>
-    <head>
-        <title>Thanks for contacting</title>
-        <meta http-equiv="refresh" content="4;url=http://localhost/Zuhause" /> 
-        <script>
-           
-
-        </script>
-        <style>
-            div
-            {
-                width: 200px;
-	            height: 200px;
-	            position: absolute;
-	            top:0;
-	            bottom: 0;
-	            left: 0;
-	            right: 0;
-  	
-	            margin: auto;
-            }
-        </style>
-    </head> 
-    <body>
-     <?php
->>>>>>> df754d91befc8196b14f7bb1bfc528b906b22d8c
         
         $msg = $_POST['message'];
 
@@ -64,7 +36,6 @@
         mail("zuhausepropertiesindia+zuhausetestreceive@gmail.com",$subject,$msg);
 
     ?>
-<<<<<<< HEAD
     
     
     <div></div>
@@ -111,12 +82,3 @@
 </body>
 
 </html>
-=======
-         <div>
-            <p>Thank You for Reaching Out!</p>
-            <p>We will get back to you soon</p>
-        </div>
-
-    </body>  
-</html>
->>>>>>> df754d91befc8196b14f7bb1bfc528b906b22d8c
