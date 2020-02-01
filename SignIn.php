@@ -94,7 +94,7 @@
                     Log In
                 </button>
                 <button class="btn btn-primary btn-block" type="submit" style="text-decoration-color: antiquewhite">
-                    <a href="signup.php" style="text-decoration:none">Sign Up</a>
+                    <a href="selectionscr.html" style="text-decoration:none">Sign Up</a>
                 </button>
             </div><a href="#" class="forgot">Forgot your email or password?</a></form>
     
