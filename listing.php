@@ -1,3 +1,17 @@
+<?php
+  $check=0;
+  session_start();
+  if (isset($_SESSION['loggedin'])) 
+        {
+          $name = $_SESSION['name'];
+          $check=1;
+        }
+  else
+  {
+    $name ='Guest';       //I choose to split this so that i can add the log out div to be visible only when logged in
+  }
+ //https://stackoverflow.com/questions/12233406/preventing-session-hijacking
+?>
 <!DOCTYPE html>
 <html>
 
@@ -13,13 +27,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Almendra+SC">
     <link rel="stylesheet" href="assets/css/styles.min.css">
     <script>
+        
       function reload()
       {
          //find a better way to do this
          document.forms.chcity.submit();
         
       }
-      </script>
+      
+    </script>
+   
 </head>
 
 <body>
@@ -47,7 +64,7 @@
 <?php 
       include 'dbaccess.php';
       $city="";
-      session_start(); 
+      
       if(isset($_SESSION['city']))  
         $city=$_SESSION['city'];
        
@@ -58,14 +75,14 @@
          die('Could not connect: ' . mysqli_error());
       }
       mysqli_select_db($conn,'zuhause');
-     
+       
         $sql =$conn->prepare('SELECT house_name,details,house_owner,rate FROM properties WHERE city=? ');
       
       
         if($sql !== FALSE) {
         $sql->bind_param('s',$city);
         }
-        else
+        else 
         {
             die('prepare() failed: ' . htmlspecialchars($conn->error));
         
@@ -79,12 +96,7 @@
          die('Could not get data: '.mysqli_error($conn));
       }
       
-     
-         
-     
-      
-      
-     ?>
+  ?> 
     
 
 <table class="table table-hover table-bordered results">
@@ -95,6 +107,8 @@
       <th class="col-md-4 col-xs-4">Details</th>
       <th class="col-md-3 col-xs-3">Owner Name</th>
       <th class="col-md-2 col-xs-2">Rate</th>
+      <th class="col-md-2 col-xs-2">&nbsp</th>
+       
     </tr>
     
   </thead>
@@ -109,6 +123,7 @@
       <td><?php echo $row['details']; ?></td>
       <td><?php echo $row['house_owner']; ?></td>
       <td><?php echo $row['rate']; ?></td>
+      <td><a href="productpage.php?id='<?php echo $row['house_name']?>'"> Go to Property page </a></td> <!-- pass th einfo in a get link -->
     </tr>
     
     <?php
