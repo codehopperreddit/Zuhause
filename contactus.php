@@ -26,9 +26,9 @@
                     class="collapse navbar-collapse" id="navcol-1" style="color:#66d7d7;">
                     <ul class="nav navbar-nav">
                         <li class="nav-item" role="presentation"><a class="nav-link active" href="#"></a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="listing.html" style="color:#000000;font-style:normal;font-weight:bold;">Properties</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="listing.php" style="color:#000000;font-style:normal;font-weight:bold;">Properties</a></li>
                         <li class="dropdown"><a class="dropdown-toggle nav-link float-left" data-toggle="dropdown" aria-expanded="false" href="#" style="color:rgba(0,0,0,0.75);font-weight:bold;">Login / Signup</a>
-                            <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="signup.html">Sign Up</a><a class="dropdown-item" role="presentation" href="login&signup.html">Login</a></div>
+                            <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="signup.php">Sign Up</a><a class="dropdown-item" role="presentation" href="login&signup.php">Login</a></div>
                         </li>
                     </ul>
                     <p class="ml-auto navbar-text actions" style="margin-bottom:7px;float:right;display:block;"><a href="#" class="login" style="color:rgb(254,254,254);font-weight:bold;font-family:'Work Sans', sans-serif;">LOGIN</a> <a class="btn btn-light action-button" role="button" href="#" style="background-color:rgb(1,10,10);">SIGN UP</a></p>

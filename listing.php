@@ -7,7 +7,7 @@
     <meta http-equiv="cache-control" content="no-cache" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="-1" />
-    <title>Listing Page.HTML</title>
+    <title>Listing Page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Almendra+SC">
@@ -25,19 +25,24 @@
 <body>
     <div>
         <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
-            <div class="container"><a class="navbar-brand" href="index.html">Zuhause</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="container"><a class="navbar-brand" href="index.php">Zuhause</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse"
                     id="navcol-1">
-                    <form  name="chcity" action="/Zuhause/city.php" method="post">
+                    <form  name="chcity" action="/ZuhauseE/city.php" method="post">
                       <select name="city" onchange="reload()">
                           <option disabled selected value> -- select an option -- </option>
                           <option value="kolkata">Kolkata</option>
                           <option value="bangalore">Bangalore</option>
                           <option value="pune">Pune</option>
+                      </select>
+                      <select name="rate" onchange="reload()">
+                          <option disabled selected value> -- select an option -- </option>
+                          <option value=10000>10000</option>
+                          <option value=20000>20000</option>
                       </select> 
                       
                   </form>
-                    <span class="navbar-text actions"> <a href="login&signup.html" class="login">Log In</a><a class="btn btn-light action-button" role="button" href="signup.html">Sign Up</a></span></div>
+                    <span class="navbar-text actions"> <a href="SignIn.php" class="login">Log In</a><a class="btn btn-light action-button" role="button" href="signup.">Sign Up</a></span></div>
             </div>
         </nav>
     </div><div class="form-group pull-right">
@@ -47,23 +52,22 @@
 <?php 
       include 'dbaccess.php';
       $city="";
+      $rate="";
       session_start(); 
-      if(isset($_SESSION['city']))  
+      if(isset($_SESSION['city'])) 
         $city=$_SESSION['city'];
-       
+      if(isset($_SESSION['rate'])) 
+        $rate=$_SESSION['rate'];
+      echo $city;
+        echo " + ";
+        echo $rate, ";";
      
-      $conn = mysqli_connect($dbhost, $dbuser, $dbpass);
+        $sql =$conn->prepare('SELECT id,house_name,details,house_owner,rate FROM properties WHERE city=? or rate<? ');
       
-      if(! $conn ) {
-         die('Could not connect: ' . mysqli_error());
-      }
-      mysqli_select_db($conn,'zuhause');
-     
-        $sql =$conn->prepare('SELECT house_name,details,house_owner,rate FROM properties WHERE city=? ');
-      
-      
+        
+
         if($sql !== FALSE) {
-        $sql->bind_param('s',$city);
+          $sql->bind_param('ss', $city, $rate);
         }
         else
         {
@@ -109,6 +113,7 @@
       <td><?php echo $row['details']; ?></td>
       <td><?php echo $row['house_owner']; ?></td>
       <td><?php echo $row['rate']; ?></td>
+      <td> <a class="brand-text" href="details.php?id=<?php echo $row['id'] ?>">more info</a> </td>
     </tr>
     
     <?php
