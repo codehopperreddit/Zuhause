@@ -67,16 +67,16 @@
 
         </li>
 
-        
+        <li>
+                  
+                  <a class="nav-link" href="#">Hello <?php echo htmlspecialchars($name); ?> </a>
+        </li>
         
         
           
               <?php if($check == 0) 
                {?>
-              <li>
-                  
-                  <a class="nav-link" href="#">Hello <?php echo htmlspecialchars($name); ?> </a>
-              </li>
+              
               <li class="nav-item">
                 <a class="nav-link" href="SignIn.php">SIGN IN</a>
               </li>
@@ -87,11 +87,7 @@
                <?php } 
                 else
                 { ?>
-                  <li>
                   
-                    <a class="nav-link" href="#">Hello <?php echo htmlspecialchars($name); ?> </a>
-
-                  </li>
                     <li>
                         <a class="nav-link" href="logout.php">logout</a>
                     </li>      

@@ -1,4 +1,41 @@
 <!DOCTYPE html>
+<?php
+    //Page still needs a lot of work  in placement 
+   $housename = ( isset($_GET['id']) ) ? $_GET['id'] : NULL; //put a redirect here to the listing page in place of NULL
+
+   include 'dbaccess.php';
+
+   $conn = mysqli_connect($dbhost, $dbuser, $dbpass);
+      
+      if(! $conn ) {
+         die('Could not connect: ' . mysqli_error());
+      }
+      mysqli_select_db($conn,'zuhause');
+       
+        $sql =$conn->prepare('SELECT details,house_owner,rate FROM properties WHERE house_name=? ');
+      
+      
+        if($sql !== FALSE) {
+        $sql->bind_param('s',$housename);
+        }
+        else 
+        {
+            die('prepare() failed: ' . htmlspecialchars($conn->error));
+        
+        }
+      
+      $sql->execute();
+      $retval =$sql->get_result();
+      
+      if(! $retval ) 
+      {
+         die('Could not get data: '.mysqli_error($conn));
+      }
+
+
+?>
+
+
 <html>
 
 <head>
@@ -61,12 +98,12 @@
                 </div>
             </div>
             <div class="col-md-5">
-                <h1>FLAT NAME</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sollicitudin elit massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris malesuada rutrum magna. Phasellus maximus
+                <h1>FLAT NAME : <?php echo $housename; ?></h1>
+                <p> <?php echo $row['details']; ?> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sollicitudin elit massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris malesuada rutrum magna. Phasellus maximus
                     nunc eget massa euismod bibendum. Phasellus justo felis, porttitor nec justo eu, vestibulum ultrices neque. Maecenas iaculis euismod tempor. Cras vel pellentesque nunc. Sed sit amet convallis dolor, eget dictum elit. Donec ut justo
                     arcu. Vivamus tincidunt nibh ac sem lobortis semper. Cras vulputate mattis euismod. Morbi accumsan leo in leo condimentum, tincidunt pretium dui scelerisque. Morbi mi dui, vehicula vel velit eget, mattis bibendum lectus. Integer iaculis
                     libero at arcu laoreet aliquam. Cras at libero sapien. Sed luctus erat sit amet est hendrerit faucibus. </p>
-                <h2 class="text-center text-success"> Rs 10,000</h2><button class="btn btn-danger btn-lg center-block" type="button"><i class="fa fa-cart-plus"></i> Add to Cart</button></div>
+                <h2 class="text-center text-success"> Rs <?php echo $row['rate']; ?></h2><button class="btn btn-danger btn-lg center-block" type="button"><i class="fa fa-cart-plus"></i> Add to Cart</button></div>
         </div>
     </div>
     <div class="container">

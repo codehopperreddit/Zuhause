@@ -1,3 +1,17 @@
+<?php
+  $check=0;
+  session_start();
+  if (isset($_SESSION['loggedin'])) 
+        {
+          $name = $_SESSION['name'];
+          $check=1;
+        }
+  else
+  {
+    $name ='Guest';       //I choose to split this so that i can add the log out div to be visible only when logged in
+  }
+ //https://stackoverflow.com/questions/12233406/preventing-session-hijacking
+?>
 <!DOCTYPE html>
 <html>
 
@@ -13,13 +27,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Almendra+SC">
     <link rel="stylesheet" href="assets/css/styles.min.css">
     <script>
+        
       function reload()
       {
          //find a better way to do this
          document.forms.chcity.submit();
         
       }
-      </script>
+      
+    </script>
+   
 </head>
 
 <body>
@@ -58,7 +75,8 @@
         $city=$_SESSION['city'];
       if(isset($_SESSION['rate'])) 
         $rate=$_SESSION['rate'];
-      echo $city;
+  
+        echo $city;
         echo " + ";
         echo $rate, ";";
      
@@ -69,7 +87,7 @@
         if($sql !== FALSE) {
           $sql->bind_param('ss', $city, $rate);
         }
-        else
+        else 
         {
             die('prepare() failed: ' . htmlspecialchars($conn->error));
         
@@ -83,12 +101,7 @@
          die('Could not get data: '.mysqli_error($conn));
       }
       
-     
-         
-     
-      
-      
-     ?>
+  ?> 
     
 
 <table class="table table-hover table-bordered results">
@@ -99,6 +112,8 @@
       <th class="col-md-4 col-xs-4">Details</th>
       <th class="col-md-3 col-xs-3">Owner Name</th>
       <th class="col-md-2 col-xs-2">Rate</th>
+      <th class="col-md-2 col-xs-2">&nbsp</th>
+       
     </tr>
     
   </thead>
