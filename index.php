@@ -63,7 +63,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="contactus.html">Contact us</a>
+          <a class="nav-link" href="contactus.php">Contact us</a>
 
         </li>
 
