@@ -78,8 +78,7 @@
        
         $sql =$conn->prepare('SELECT house_name,details,house_owner,rate FROM properties WHERE city=? ');
       
-      
-        if($sql !== FALSE) {
+      if($sql !== FALSE) {
         $sql->bind_param('s',$city);
         }
         else 

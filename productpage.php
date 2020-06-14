@@ -2,7 +2,7 @@
 <?php
     //Page still needs a lot of work  in placement 
    $housename = ( isset($_GET['id']) ) ? $_GET['id'] : NULL; //put a redirect here to the listing page in place of NULL
-
+   $housename=substr($housename,1,-1); //strips the escape characters, for some reason its not removed normally
    include 'dbaccess.php';
 
    $conn = mysqli_connect($dbhost, $dbuser, $dbpass);
@@ -15,24 +15,24 @@
         $sql =$conn->prepare('SELECT details,house_owner,rate FROM properties WHERE house_name=? ');
       
       
-        if($sql !== FALSE) {
-        $sql->bind_param('s',$housename);
-        }
+       if($sql !== FALSE) {
+       $sql->bind_param('s',$housename);
+        
+       }
         else 
         {
-            die('prepare() failed: ' . htmlspecialchars($conn->error));
+           die('prepare() failed: ' . htmlspecialchars($conn->error));
         
-        }
-      
-      $sql->execute();
+}
+    $sql->execute();
       $retval =$sql->get_result();
       
       if(! $retval ) 
       {
          die('Could not get data: '.mysqli_error($conn));
       }
-
-
+      $row = $retval-> fetch_array(MYSQLI_NUM);
+ 
 ?>
 
 
@@ -41,7 +41,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>product page</title>
+    <title>Product Page</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
@@ -99,11 +99,11 @@
             </div>
             <div class="col-md-5">
                 <h1>FLAT NAME : <?php echo $housename; ?></h1>
-                <p> <?php echo $row['details']; ?> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sollicitudin elit massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris malesuada rutrum magna. Phasellus maximus
+                <p> <?php echo $row[0]; ?> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sollicitudin elit massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris malesuada rutrum magna. Phasellus maximus
                     nunc eget massa euismod bibendum. Phasellus justo felis, porttitor nec justo eu, vestibulum ultrices neque. Maecenas iaculis euismod tempor. Cras vel pellentesque nunc. Sed sit amet convallis dolor, eget dictum elit. Donec ut justo
                     arcu. Vivamus tincidunt nibh ac sem lobortis semper. Cras vulputate mattis euismod. Morbi accumsan leo in leo condimentum, tincidunt pretium dui scelerisque. Morbi mi dui, vehicula vel velit eget, mattis bibendum lectus. Integer iaculis
                     libero at arcu laoreet aliquam. Cras at libero sapien. Sed luctus erat sit amet est hendrerit faucibus. </p>
-                <h2 class="text-center text-success"> Rs <?php echo $row['rate']; ?></h2><button class="btn btn-danger btn-lg center-block" type="button"><i class="fa fa-cart-plus"></i> Add to Cart</button></div>
+                <h2 class="text-center text-success"> Rs <?php echo $row[2]; ?></h2><button class="btn btn-danger btn-lg center-block" type="button"><i class="fa fa-cart-plus"></i> Add to Cart</button></div>
         </div>
     </div>
     <div class="container">
@@ -205,5 +205,11 @@
     <script src="assets/js/GradeJS-the-preview-image-do-not-reflect-the-effect1.js"></script>
     <script src="assets/js/Review-rating-Star-Review-Button.js"></script>
 </body>
+
+<?php 
+      $sql->close();
+      mysqli_close($conn);
+
+?>
 
 </html>

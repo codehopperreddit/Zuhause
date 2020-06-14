@@ -10,7 +10,7 @@
   {
     $name ='Guest';       //I choose to split this so that i can add the log out div to be visible only when logged in
   }
- //https://stackoverflow.com/questions/12233406/preventing-session-hijacking
+
 ?>
 <!DOCTYPE html>
 <html>
