@@ -103,7 +103,12 @@
                     nunc eget massa euismod bibendum. Phasellus justo felis, porttitor nec justo eu, vestibulum ultrices neque. Maecenas iaculis euismod tempor. Cras vel pellentesque nunc. Sed sit amet convallis dolor, eget dictum elit. Donec ut justo
                     arcu. Vivamus tincidunt nibh ac sem lobortis semper. Cras vulputate mattis euismod. Morbi accumsan leo in leo condimentum, tincidunt pretium dui scelerisque. Morbi mi dui, vehicula vel velit eget, mattis bibendum lectus. Integer iaculis
                     libero at arcu laoreet aliquam. Cras at libero sapien. Sed luctus erat sit amet est hendrerit faucibus. </p>
-                <h2 class="text-center text-success"> Rs <?php echo $row[2]; ?></h2><button class="btn btn-danger btn-lg center-block" type="button"><i class="fa fa-cart-plus"></i> Add to Cart</button></div>
+                <h2 class="text-center text-success"> Rs <?php echo $row[2]; ?></h2><button class="btn btn-danger btn-lg center-block" type="button"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+                <button type="button" class="btn btn-primary" id="van-but" onclick="changer()">Book Now! </button>
+
+               
+                
+                </div>
         </div>
     </div>
     <div class="container">
@@ -204,6 +209,7 @@
     <script src="assets/js/GradeJS-the-preview-image-do-not-reflect-the-effect.js"></script>
     <script src="assets/js/GradeJS-the-preview-image-do-not-reflect-the-effect1.js"></script>
     <script src="assets/js/Review-rating-Star-Review-Button.js"></script>
+    <script src="butalt.js"></script>
 </body>
 
 <?php 
