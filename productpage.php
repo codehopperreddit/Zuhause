@@ -62,7 +62,11 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/Testimonials.css">
 </head>
-
+<style>
+#pricetag {
+    font-size: large;
+}
+</style>
 <body>
     <nav class="navbar navbar-light navbar-expand-md navbar-fixed-top navigation-clean-button">
         <div class="container"><a class="navbar-brand" href="index.php"><span  style="color:rgb(221,221,221);">Zuhause&nbsp;</span> </a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
@@ -103,11 +107,11 @@
                     nunc eget massa euismod bibendum. Phasellus justo felis, porttitor nec justo eu, vestibulum ultrices neque. Maecenas iaculis euismod tempor. Cras vel pellentesque nunc. Sed sit amet convallis dolor, eget dictum elit. Donec ut justo
                     arcu. Vivamus tincidunt nibh ac sem lobortis semper. Cras vulputate mattis euismod. Morbi accumsan leo in leo condimentum, tincidunt pretium dui scelerisque. Morbi mi dui, vehicula vel velit eget, mattis bibendum lectus. Integer iaculis
                     libero at arcu laoreet aliquam. Cras at libero sapien. Sed luctus erat sit amet est hendrerit faucibus. </p>
-                <h2 class="text-center text-success"> Rs <?php echo $row[2]; ?></h2><button class="btn btn-danger btn-lg center-block" type="button"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+                <h2 class="text-center text-success"> <p id="pricetag">Rs</p> <?php echo $row[2]; ?></h2><button class="btn btn-danger btn-lg center-block" type="button"><i class="fa fa-cart-plus"></i> Add to Cart</button>
                 <button type="button" class="btn btn-primary" id="van-but" onclick="changer()">Book Now! </button>
 
                
-                
+                <p></p>
                 </div>
         </div>
     </div>
@@ -217,5 +221,10 @@
       mysqli_close($conn);
 
 ?>
+
+
+
+
+
 
 </html>
